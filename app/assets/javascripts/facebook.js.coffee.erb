@@ -1,27 +1,35 @@
-$(document).ready ->
-  $("body").prepend "<div id=\"fb-root\"></div>"
-
-  $.ajax
-    url: "" + window.location.protocol + "//connect.facebook.net/en_US/all.js"
-    dataType: "script"
+$(document).ready(function() {
+  $("body").prepend("<div id=\"fb-root\"></div>");
+  return $.ajax({
+    url: "" + window.location.protocol + "//connect.facebook.net/en_US/all.js",
+    dataType: "script",
     cache: true
+  });
+});
 
-window.fbAsyncInit = ->
-  FB.init
-    appId: <%= ENV['FACEBOOK_APP_ID'] %>
-    cookie: true
-    login: true
+window.fbAsyncInit = function() {
+  FB.init({
+    appId: <%= ENV['FACEBOOK_APP_ID'] %>,
+    cookie: true,
+    login: true,
     status: true
-
-  $(".facebook").click (e) ->
-    e.preventDefault()
-    FB.login ((response) ->
-      window.location = "/auth/facebook/callback" if response.authResponse
-    ),
+  });
+  $(".facebook").click(function(e) {
+    e.preventDefault();
+    return FB.login((function(response) {
+      if (response.authResponse) {
+        return window.location = "/auth/facebook/callback";
+      }
+    }), {
       scope: "email,user_likes"
-
-
-  $("#sign_out").click (e) ->
-    FB.getLoginStatus (response) ->
-      FB.logout() if response.authResponse
-    true
+    });
+  });
+  return $("#sign_out").click(function(e) {
+    FB.getLoginStatus(function(response) {
+      if (response.authResponse) {
+        return FB.logout();
+      }
+    });
+    return true;
+  });
+};
