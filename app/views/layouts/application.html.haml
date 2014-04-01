@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+    %title=@title
+    %meta{content: "#{@meta}", name: "description"}/
+  %body
+    %header
+      %a.link{href: "/"}
+        Monster API
+        \#{image_tag("Shadow Logo.png", :width=>"40", :height => "40")}
+    .main-content
+      = yield
+    %footer
+      Copyright © 2014. All Rights Reserved.

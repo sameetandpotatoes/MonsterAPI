@@ -1,0 +1,39 @@
+@import "reset";
+@import "facebook";
+@import "twitter";
+@import "github";
+@import "linkedin";
+@import "google";
+@import "buttons";
+@import "fontawesome";
+@import url(http://fonts.googleapis.com/css?family=Lato);
+
+html, head{
+  overflow-x: hidden;
+}
+body{
+  font-family: 'Lato';
+  overflow-x: hidden;
+}
+header{
+	background-color: #232323;
+	padding: 5px 0px 5px 15px;
+	color: white;
+	font: 30px 'Droid Sans', Verdana;
+	overflow: hidden;
+}
+.main-content{
+  padding: 10px 30px;
+}
+footer{
+	font-family: 'Lato', Verdana;
+	background-color: #232323;
+	padding: 5px;
+	height: 25px;
+	position: relative;
+  text-align: center;
+	bottom: 0px;
+	width: 100%;
+	overflow: hidden;
+	color: white;
+}

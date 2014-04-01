@@ -1,0 +1,13 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+
+jQuery ->
+
+  $('.linkedin').click (e) ->
+    e.preventDefault()
+    window.location = '/auth/linkedin/'
+    # document.location.href = "https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=75z6k06m8oq8ee&scope=r_fullprofile+rw_nus+r_contactinfo+r_network&state=DCEEFf424&redirect_uri=http://localhost:3000/auth/linkedin/callback"
+  $('.github').click (e) ->
+    e.preventDefault()
+    window.location = '/auth/github/'

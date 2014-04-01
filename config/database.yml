@@ -1,0 +1,12 @@
+development:
+  adapter: postgresql
+  database: ssapra
+  username:
+  password:
+  host:
+production:
+  adapter: postgresql
+  database: ssapra
+  username:
+  password:
+  host:
