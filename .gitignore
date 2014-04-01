@@ -10,7 +10,6 @@ capybara-*.html
 
 config/application.yml
 config/cloudinary.yml
-config/routes.rb
 
 ## Environment normalisation:
 /.bundle
