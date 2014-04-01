@@ -1,5 +1,5 @@
 TwitterAPI::Application.routes.draw do
-  get '/', to: 'pages#home'
+  get '/', to: 'pages#home', as: 'root'
   root 'pages#home', as: 'home'
   scope module: 'linkedin' do
     if Rails.env.development?
