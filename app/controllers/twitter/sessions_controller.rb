@@ -37,7 +37,6 @@ class Twitter::SessionsController < ApplicationController
             break
           end
         end
-        binding.pry
       rescue Twitter::Error::TooManyRequests => error
         if NUM_ATTEMPTS <= MAX_ATTEMPTS
           # NOTE: Your process could go to sleep for up to 15 minutes but if you

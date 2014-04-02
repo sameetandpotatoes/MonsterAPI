@@ -20,5 +20,5 @@ $(document).ready(function(){
 });
 
 footerFix = function(){
-  $('.main-content').css("min-height", $(window).height() - $('footer').height() - $('header').height() - 40);
+  $('.main-content').css("min-height", $(window).height() - $('footer').height() - $('header').height() - 50);
 };

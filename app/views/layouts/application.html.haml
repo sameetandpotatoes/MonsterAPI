@@ -6,6 +6,7 @@
     = csrf_meta_tags
     %title=@title
     %meta{content: "#{@meta}", name: "description"}/
+    %link{rel: "icon", type: "image/x-icon", href: "#{asset_path("Shadow Logo.png")}"}/
   %body
     %header
       %a.link{href: "/"}
