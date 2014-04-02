@@ -1,52 +1,49 @@
-%h1
-  = @user.name
-  %small
-    = "@#{@user.screen_name}"
-- unless @user.description.blank?
-  %h6
-    = @user.description
-  .span6
-    %table.table
-      %thead
-        %tr
-          %th
-            = t('th.tweets')
-          %th
-            = t('th.following')
-          %th
-            = t('th.followers')
-          %th
-            = t('th.favorites')
-      %tbody
-        %tr
-          %td
-            = number_with_delimiter @user.statuses_count
-          %td
-            = number_with_delimiter @user.friends_count
-          %td
-            = number_with_delimiter @user.followers_count
-          %td
-            = number_with_delimiter @user.favorites_count
-.row
-  .span12
-    - unless @user.status.blank?
-      %blockquote
-        %q{cite: 'https://twitter.com/#{@user.screen_name}/status/#{@user.status.id}'}
-          %p
-            = auto_link(@user.status.text.dup).html_safe
-        %small
-          = t('time.ago', time: time_ago_in_words(@user.status.created_at).capitalize)
-          = t('via.source', source: @user.status.source).html_safe
-.row
-  .span6
-    %dl.dl-horizontal
-      %dt
-        Access&nbsp;token
-      %dd
-        = session['access_token']
-      %dt
-        Access&nbsp;token&nbsp;secret
-      %dd
-        = session['access_token_secret']
-  .span2.offset4
-    = link_to twitter_signout_path, method: 'delete'
+#twitter
+  %h1
+    = @user.name
+    %small#twitter-link
+      = link_to "@#{@user.screen_name}", "http://www.twitter.com/#{@user.screen_name}"
+  - unless @user.description.blank?
+    %h6#twitterdescription
+      = @user.description.strip
+  .image
+    = image_tag @user.profile_image_url.to_s.sub! "_normal", ""
+  .content
+    %p.header-text
+      %span Twitter Statistics
+      With #{number_with_delimiter @user.statuses_count} tweets, #{number_with_delimiter @user.friends_count}
+      following, #{number_with_delimiter @user.followers_count} followers, and #{number_with_delimiter @user.favorites_count}
+      favorites, I'd say that you
+      - if @sum < 200
+        don't really use Twitter that much.
+      - else
+        love to use Twitter.
+    .tweets
+      %p.header-text
+        %span Recent Tweets:
+        You have recently tweeted
+      - @tweets.each do |tweet|
+        %p.api-info "#{tweet.text}",
+    .friends
+      %p.header-text
+        %span Recent Followers:
+        You have recently followed
+      - @three.each do |friend|
+        .friend
+          %p.api-info
+            %small#twitter-link
+              = link_to "@#{friend.screen_name},", "http://www.twitter.com/#{friend.screen_name}"
+          = image_tag friend.profile_image_url.to_s
+      on Twitter.
+    .suggestions
+      %p.header-text
+        %span Suggestions:
+        Based on your interests on Twitter, you seem to enjoy
+      - @suggestions.each do |suggest|
+        %p.api-info=suggest.slug
+    .trends
+      %p.header-text
+        %span Local Trends:
+        In your geographic area, people are using these hashtags:
+      - @trends.each do |trend|
+        %p.api-info #{trend.name},

@@ -11,14 +11,16 @@
   src: url('http://netdna.bootstrapcdn.com/font-awesome/4.0.3/fonts/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'), url('http://netdna.bootstrapcdn.com/font-awesome/4.0.3/fonts/fontawesome-webfont.woff?v=4.0.3') format('woff'), url('http://netdna.bootstrapcdn.com/font-awesome/4.0.3/fonts/fontawesome-webfont.ttf?v=4.0.3') format('truetype'), url('http://netdna.bootstrapcdn.com/font-awesome/4.0.3/fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
 }
 .fa {
+  -moz-osx-font-smoothing: grayscale;
   display: inline-block;
   font-family: 'FontAwesome';
   line-height: 1;
-  min-width: 16px;
+  margin: 0 auto;
+  min-width: 50px;
+  padding-right: 15px;
   text-align: right;
   vertical-align: inherit;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 /* makes the font 33% larger relative to the icon container */
 .fa-lg {
@@ -40,8 +42,6 @@
 }
 .fa-fw {
   width: 1.2857142857142858em;
-  text-align: right;
-  padding-right: 15px;
 }
 .fa-ul {
   padding-left: 0;

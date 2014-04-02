@@ -1,5 +1,4 @@
 module ApplicationHelper
-  include Twitter::Autolink
   def getrequest(url)
     result = Net::HTTP.get(URI.parse(url))
     result = JSON.parse(result);

@@ -1,3 +1,50 @@
+$twitter-theme: #40BFF5;
 .twitter{
-  background-color: #40BFF5;
+  background-color: $twitter-theme;
+}
+#twitter{
+  overflow: hidden;
+}
+#twitter h1{
+  font-size: 35px;
+  text-align: center;
+}
+#twitterdescription{
+  color: gray;
+  text-align: center;
+  font-size: 23px;
+  text-decoration: italic;
+  margin-top: 20px;
+}
+.image{
+  float: left;
+}
+#twitter .image img{
+  width: 250px;
+  height: 250px;
+  border-radius: 999px;
+}
+.content{
+  margin-top: 30px;
+  margin-left: 30px;
+  line-height: 1.5em;
+}
+.friend{
+  display: inline-block;
+  img{
+    vertical-align: middle;
+  }
+}
+#twitter p{
+  display: inline-block;
+}
+.header-text > span, #twitter h3 > span{
+  font-weight: bold;
+}
+#twitter-link{
+  border-bottom: 5px solid $twitter-theme;
+  font-size: 25px;
+  &:hover{
+    color: $twitter-theme;
+  }
 }
