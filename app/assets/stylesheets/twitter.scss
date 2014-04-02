@@ -4,6 +4,9 @@ $twitter-theme: #40BFF5;
 }
 #twitter{
   overflow: hidden;
+  div{
+    min-height: 100px;
+  }
 }
 #twitter h1{
   font-size: 35px;

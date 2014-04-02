@@ -10,7 +10,7 @@
     = image_tag @user.profile_image_url.to_s.sub! "_normal", ""
   .content
     %p.header-text
-      %span Twitter Statistics
+      %span Twitter Statistics:
       With #{number_with_delimiter @user.statuses_count} tweets, #{number_with_delimiter @user.friends_count}
       following, #{number_with_delimiter @user.followers_count} followers, and #{number_with_delimiter @user.favorites_count}
       favorites, I'd say that you
@@ -46,4 +46,16 @@
         %span Local Trends:
         In your geographic area, people are using these hashtags:
       - @trends.each do |trend|
-        %p.api-info #{trend.name},
+        %p.api-info #{trend.name}
+    .topics
+      %p.header-text
+        %span Tweets on Coffee:
+        People on Twitter have this to say about coffee:
+      - @topictweets.each do |tweet|
+        %p.api-info "#{tweet}"
+    .random
+      %p.header-text
+        %span Random Tweets:
+        Just for fun, here are some of the most random tweets we can find on Twitter:
+      - @random.each do |tweet|
+        %p.api-info "#{tweet}"

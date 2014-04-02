@@ -20,18 +20,18 @@ class Twitter::SessionsController < ApplicationController
         @suggestions.last.slug.dup.gsub! @suggestions.last.slug, "and " + @suggestions.last.slug
         @trends = client.trends.take(3)
         @trends.last.name.dup.gsub! @trends.last.name, "and " + @trends.last.name
-        tweets = []
+        @topictweets = []
         count = 0
         topics = ["coffee"]
         streaming.filter(:track => topics.join(",")) do |object|
-          count < 3 ? tweets << object.text : break
+          count < 3 ? @topictweets << object.text : break
           count+=1
         end
         count = 0
-        random = []
+        @random = []
         streaming.sample do |object|
           if (object.is_a?(Twitter::Tweet) && count < 3)
-            random << object.text
+            @random << object.text
             count += 1
           else
             break
