@@ -13,18 +13,18 @@ class Twitter::SessionsController < ApplicationController
         @user = client.user(include_entities: true)
         @sum = @user.statuses_count + @user.friends_count + @user.followers_count + @user.favorites_count
         @tweets = client.user_timeline.take(3)
-        @three = client.friends.take(3)
+        @three = client.friends.take(4)
         @three.last.name.dup.gsub! @three.last.name, "and " + @three.last.name
         @mentions = client.mentions_timeline
-        @suggestions = client.suggestions.take(3)
+        @suggestions = client.suggestions.take(5)
         @suggestions.last.slug.dup.gsub! @suggestions.last.slug, "and " + @suggestions.last.slug
-        @trends = client.trends.take(3)
+        @trends = client.trends.take(4)
         @trends.last.name.dup.gsub! @trends.last.name, "and " + @trends.last.name
         @topictweets = []
         count = 0
         topics = ["coffee"]
         streaming.filter(:track => topics.join(",")) do |object|
-          count < 5 ? @topictweets << object.text : break
+          count < 4 ? @topictweets << object.text : break
           count+=1
         end
       rescue Twitter::Error::TooManyRequests => error

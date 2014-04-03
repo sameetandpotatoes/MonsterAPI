@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140403154824) do
+ActiveRecord::Schema.define(version: 20140403214503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,22 +22,22 @@ ActiveRecord::Schema.define(version: 20140403154824) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "users"
-    t.string   "provider"
-    t.string   "string"
-    t.string   "uid"
-    t.string   "name"
-    t.string   "oauth_token"
-    t.datetime "oauth_expires_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "quote"
-    t.string   "location"
-    t.string   "email"
-    t.string   "image"
-    t.string   "e"
-    t.text     "github_results",   default: "--- {}\n"
-    t.text     "linkedin_results", default: "--- {}\n"
+    t.text   "users"
+    t.text   "provider"
+    t.text   "string"
+    t.text   "uid"
+    t.text   "name"
+    t.text   "oauth_token"
+    t.text   "oauth_expires_at"
+    t.text   "created_at"
+    t.text   "updated_at"
+    t.text   "quote"
+    t.text   "location"
+    t.string "email"
+    t.text   "image"
+    t.string "e"
+    t.text   "github_results",   default: "--- {}\n"
+    t.text   "linkedin_results", default: "--- {}\n"
   end
 
 end

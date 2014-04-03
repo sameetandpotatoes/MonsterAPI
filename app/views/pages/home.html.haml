@@ -1,5 +1,5 @@
 - @title = "MonsterAPI | Home"
-.intro-text
+.intro-text#right
   %h1 Social Media - In One Place
   %p View all of your information from your social media accounts in one place. Click any of the buttons to the left to get started.
   %hr
@@ -11,7 +11,7 @@
   %p
     Want to contact me? Visit
     =link_to "my site", "http://sameetsapra.com", :class => "embedded-link"
-.buttons
+.buttons#left
   = link_to '<i class="fa fa-facebook fa-2x"></i> Sign in with Facebook'.html_safe, "/auth/facebook", class: "facebook button"
   = link_to '<i class="fa fa-twitter fa-2x"></i> Sign in with Twitter'.html_safe, "/auth/twitter", class: "twitter button"
   = link_to '<i class="fa fa-github fa-2x"></i> Sign in with Github'.html_safe, "#", class: "github button"

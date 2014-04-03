@@ -1,55 +1,66 @@
+-@title="Twitter | #{@user.name}"
 #twitter
-  %h1
-    = @user.name
-    %small#twitter-link
-      = link_to "@#{@user.screen_name}", "http://www.twitter.com/#{@user.screen_name}"
-  - unless @user.description.blank?
-    %h6#twitterdescription
-      = @user.description.strip
-  .image
+  .image#right
     = image_tag @user.profile_image_url.to_s.sub! "_normal", ""
+  .basic_info#left
+    %h1
+      = @user.name
+      %small#twitter-link
+        = link_to "@#{@user.screen_name}", "http://www.twitter.com/#{@user.screen_name}"
+    - unless @user.description.blank?
+      %h6#twitterdescription
+        = @user.description.strip
   .content
-    %p.header-text
-      %span Twitter Statistics:
-      With #{number_with_delimiter @user.statuses_count} tweets, #{number_with_delimiter @user.friends_count}
-      following, #{number_with_delimiter @user.followers_count} followers, and #{number_with_delimiter @user.favorites_count}
-      favorites, I'd say that you
-      - if @sum < 200
-        don't really use Twitter that much.
-      - else
-        love to use Twitter.
+    .stats
+      .content-text#right
+        With #{number_with_delimiter @user.statuses_count} tweets, #{number_with_delimiter @user.friends_count}
+        following, #{number_with_delimiter @user.followers_count} followers, and #{number_with_delimiter @user.favorites_count}
+        favorites, I'd say that you
+        - if @sum < 200
+          don't really use Twitter that much.
+        - else
+          love to use Twitter.
+      .content-header#left Twitter Statistics
     .tweets
-      %p.header-text
-        %span Recent Tweets:
-        You have recently tweeted
-      - @tweets.each do |tweet|
-        %p.api-info "#{tweet.text}",
+      .content-text#right
+        %ol
+          - @tweets.each do |tweet|
+            %li.api-info "#{tweet.text}"
+      .content-header#left
+        Recent Tweets
     .friends
-      %p.header-text
-        %span Recent Followers:
-        You have recently followed
-      - @three.each do |friend|
-        .friend
-          %p.api-info
-            %small#twitter-link
-              = link_to "@#{friend.screen_name},", "http://www.twitter.com/#{friend.screen_name}"
-          = image_tag friend.profile_image_url.to_s
-      on Twitter.
+      .content-text#right
+        - @three.each do |friend|
+          .friend
+            %p.api-info
+              %small#twitter-link
+                = link_to "@#{friend.screen_name}", "http://www.twitter.com/#{friend.screen_name}"
+            =# image_tag friend.profile_image_url.to_s
+      .content-header#left
+        Recent Followers
     .suggestions
-      %p.header-text
-        %span Suggestions:
+      .content-text#right
         Based on your interests on Twitter, you seem to enjoy
-      - @suggestions.each do |suggest|
-        %p.api-info=suggest.slug
+        - @suggestions.each do |suggest|
+          %p.api-info=suggest.slug
+      .content-header#left
+        Suggestions
     .trends
-      %p.header-text
-        %span Local Trends:
+      .content-text#right
         In your geographic area, people are using these hashtags:
-      - @trends.each do |trend|
-        %p.api-info=trend.name
+        - @trends.each do |trend|
+          %p.api-info=trend.name
+      .content-header#left
+        Local Trends
     .topics
-      %p.header-text
-        %span Tweets on Coffee:
-        People on Twitter have this to say about coffee:
-      - @topictweets.each do |tweet|
-        %p.api-info=tweet
+      .content-text#right
+        %ol
+          - @topictweets.each do |tweet|
+            %li.api-info=tweet
+      .content-header#left
+        Tweets on Coffee
+:javascript
+  var twitter_divs = $('.content').children();
+  for (var i = 0; i < twitter_divs.length; i++){
+    $(twitter_divs[i]).css("height", $($(twitter_divs[i]).children()).first().height());
+  }

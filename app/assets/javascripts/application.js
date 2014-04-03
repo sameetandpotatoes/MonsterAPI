@@ -18,7 +18,6 @@ $(document).ready(function(){
   footerFix();
   $(window).resize(function(){ footerFix(); });
 });
-
 footerFix = function(){
   $('.main-content').css("min-height", $(window).height() - $('footer').height() - $('header').height() - 80);
 };

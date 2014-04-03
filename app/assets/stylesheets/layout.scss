@@ -1,0 +1,72 @@
+html, head{
+  overflow-x: hidden;
+}
+body{
+  font-family: 'Ubuntu';
+  overflow-x: hidden;
+  font-size: 22px;
+  background-color: #F5F5F5;
+}
+h1{
+  font-family: 'Myriad Pro', 'Helvetica' !important;
+}
+#left{
+  position: relative;
+  margin-right: 55%;
+}
+#right{
+  float: right;
+  position: relative;
+  text-align: right;
+  max-width: 50%;
+  margin-top: 50px;
+}
+.intro-text{
+  h1{
+    font-weight: bold;
+    font-size: 35px;
+    padding-bottom: 20px;
+  }
+  p{
+    line-height: 1.3em;
+  }
+  hr{
+    margin: 30px 0;
+  }
+}
+header{
+  background-color: #232323;
+  padding: 5px 0px 5px 15px;
+  color: white;
+  font: 32px 'Ubuntu', Verdana;
+  overflow: hidden;
+  img{
+    vertical-align: bottom;
+  }
+}
+.main-content{
+  padding: 0px 30px;
+}
+.embedded-link{
+  border-bottom: 3px solid gray;
+  &:hover{
+    color: gray;
+  }
+}
+footer{
+  font-family: 'Ubuntu', Verdana;
+  font-size: 15px;
+  background-color: #232323;
+  padding: 10px;
+  height: 25px;
+  position: relative;
+  text-align: center;
+  bottom: 0px;
+  width: 100%;
+  overflow: hidden;
+  color: white;
+}
+.all{
+  background-color: black;
+  color: white;
+}

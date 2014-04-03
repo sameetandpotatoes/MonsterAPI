@@ -4,13 +4,28 @@ $twitter-theme: #40BFF5;
 }
 #twitter{
   overflow: hidden;
-  div{
-    min-height: 100px;
-  }
+  margin: 30px;
+}
+.image{
+  margin-right: 100px;
+}
+.image, .content-text{
+  margin-top: 0px !important;
+}
+li.api-info{
+  list-style: decimal outside none;
+}
+.content > div{
+  border-bottom: 2px solid #CCCCCC;
+  margin-bottom: 1.5em;
+  padding-bottom: 1em;
 }
 #twitter h1{
   font-size: 35px;
   text-align: center;
+}
+.trends .api-info, .suggestions .api-info{
+  border-bottom: 3px solid #9A9A9A;
 }
 #twitterdescription{
   color: gray;
@@ -19,8 +34,9 @@ $twitter-theme: #40BFF5;
   text-decoration: italic;
   margin-top: 20px;
 }
-#twitter .image{
-  float: left;
+.basic_info{
+  margin-right: 0px !important;
+  margin-top: 100px;
 }
 #twitter .image img{
   width: 250px;
@@ -28,8 +44,7 @@ $twitter-theme: #40BFF5;
   border-radius: 999px;
 }
 .content{
-  margin-top: 30px;
-  margin-left: 30px;
+  margin-top: 150px;
   line-height: 1.5em;
 }
 .friend{
@@ -41,12 +56,15 @@ $twitter-theme: #40BFF5;
 #twitter p{
   display: inline-block;
 }
-.header-text > span, #twitter h3 > span{
+.content-header{
   font-weight: bold;
+}
+.content-text{
+  text-align: left !important;
+  max-width: 60% !important;
 }
 #twitter-link{
   border-bottom: 5px solid $twitter-theme;
-  font-size: 25px;
   &:hover{
     color: $twitter-theme;
   }
