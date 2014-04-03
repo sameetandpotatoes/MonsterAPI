@@ -12,5 +12,10 @@ class Github::SessionsController < ApplicationController
     @results = JSON.parse(RestClient.get('https://api.github.com/user',
                                         {:params => {:access_token => access_token}}))
     @results["repos"] = getrequest(@results['repos_url'])
+    if current_user["e"] == "all"
+      current_user["github_results"] = @results
+      current_user.save!
+      redirect_to "/auth/linkedin"
+    end
   end
 end

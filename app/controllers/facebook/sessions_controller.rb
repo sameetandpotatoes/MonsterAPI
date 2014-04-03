@@ -3,7 +3,13 @@ class Facebook::SessionsController < ApplicationController
     auth = request.env['omniauth.auth']
     user = User.from_omniauth(auth)
     session[:user_id] = user.id
-    redirect_to facebook_home_path
+    if params["e"].nil?
+      redirect_to facebook_home_path
+    else
+      user["e"] = "all"
+      user.save!
+      redirect_to "/auth/twitter?e=all"
+    end
   end
 
   def destroy

@@ -27,7 +27,7 @@ h1{
   vertical-align: top;
   margin: 50px auto;
   text-align: right;
-  max-width: 60%;
+  max-width: 50%;
   margin-left: 5%;
   h1{
     font-weight: bold;
@@ -72,4 +72,8 @@ footer{
 	width: 100%;
 	overflow: hidden;
 	color: white;
+}
+.all{
+  background-color: black;
+  color: white;
 }

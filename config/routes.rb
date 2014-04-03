@@ -1,6 +1,7 @@
 TwitterAPI::Application.routes.draw do
   get '/', to: 'pages#home', as: 'root'
   root 'pages#home', as: 'home'
+  get '/all', to: 'pages#all', as: 'all'
   scope module: 'linkedin' do
     if Rails.env.development?
       get '/auth/linkedin', to: redirect('https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=75z6k06m8oq8ee&scope=r_fullprofile+rw_nus+r_contactinfo+r_network&state=DCEEFf424&redirect_uri=http://localhost:3000/auth/linkedin/callback')
