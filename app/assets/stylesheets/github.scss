@@ -1,3 +1,27 @@
+$github-theme: #EB5E4C;
 .github{
-  background-color: #EB5E4C;
+  background-color: $github-theme;
+}
+#github{
+  .image img{
+    width: 250px;
+    height: 250px;
+    border-radius: 999px;
+  }
+  a{
+    border-bottom: 5px solid $github-theme;
+    &:hover{
+      color: $github-theme;
+    }
+  }
+  h1{
+    text-align: center;
+    font-size: 35px;
+  }
+  p{
+    line-height: 1.5em;
+  }
+}
+#repo-description{
+  text-indent: 20px;
 }

@@ -1,4 +1,37 @@
-%p Hello, #{@results["login"]}!
-- @results.each do |key, value|
-  %p=key
-  %p=value
+-@title = "GitHub | #{@results["name"]}"
+#github
+  %h1
+    = link_to "#{@results["login"]}", "http://github.com/#{@results["login"]}"
+  %p
+    #{@results["name"].split(" ")[0]} can be contacted at
+    = link_to "#{@results["email"]}", "mailto:#{@results["email"]}?Subject=Hello"
+  .image
+    = image_tag @results["avatar_url"]
+  %p
+    #{@results["name"].split(" ")[0]} has #{number_with_delimiter @results["public_repos"]} public repos,
+    #{number_with_delimiter @results["public_gists"]} public gists, and
+    #{number_with_delimiter @results["followers"]} followers.
+  - if @results["company"].nil?
+    - if !@results["hireable"]
+      %p
+        #{@results["name"].split(" ")[0]} is currently
+        %span unemployed
+        and available for
+        %span hire.
+    - else
+      %p
+        #{@results["name"].split(" ")[0]} is currently
+        %span unemployed
+        and not available for hire.
+  - else
+    %p
+      #{@results["name"].split(" ")[0]} is currently
+      %span employed
+      at #{@results["company"]}.
+  .repositories
+    %h1
+      #{@results["name"].split(" ")[0]}'s Repositories
+    - @results["repos"].each do |repo|
+      %p=link_to "#{repo["name"]}", repo["html_url"]
+      - unless repo["description"].nil?
+        %p#repo-description "#{repo["description"]}"
