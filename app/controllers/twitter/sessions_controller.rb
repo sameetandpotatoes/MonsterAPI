@@ -1,3 +1,4 @@
+# Twitter Session Controller
 class Twitter::SessionsController < ApplicationController
   include TwitterHelper
   MAX_ATTEMPTS = 3
@@ -22,10 +23,10 @@ class Twitter::SessionsController < ApplicationController
         @trends.last.name.dup.gsub! @trends.last.name, "and " + @trends.last.name
         @topictweets = []
         count = 0
-        topics = ["coffee"]
-        streaming.filter(:track => topics.join(",")) do |object|
+        topics = ['coffee']
+        streaming.filter(track: topics.join(',')) do |object|
           count < 4 ? @topictweets << object.text : break
-          count+=1
+          count += 1
         end
       rescue Twitter::Error::TooManyRequests => error
         if NUM_ATTEMPTS <= MAX_ATTEMPTS
@@ -35,8 +36,8 @@ class Twitter::SessionsController < ApplicationController
           raise
         end
       end
-      if !current_user.nil?
-        redirect_to "/auth/github"
+      if !current_user.nil? && current_user['e'] != 'all'
+        redirect_to '/auth/github'
       end
     else
       redirect_to show_path, notice: 'Signed in'

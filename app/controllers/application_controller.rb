@@ -1,8 +1,9 @@
+# Application Controller
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  attr_accessor :e
+
   private
 
   def client
@@ -13,6 +14,7 @@ class ApplicationController < ActionController::Base
       config.access_token_secret = ENV['TWITTER_OAUTH_SECRET']
     end
   end
+
   def streaming
     @client = Twitter::Streaming::Client.new do |config|
       config.consumer_key = ENV['TWITTER_CONSUMER_KEY']
@@ -21,6 +23,7 @@ class ApplicationController < ActionController::Base
       config.access_token_secret = ENV['TWITTER_OAUTH_SECRET']
     end
   end
+
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
