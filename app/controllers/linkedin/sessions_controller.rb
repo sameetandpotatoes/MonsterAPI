@@ -9,7 +9,7 @@ class Linkedin::SessionsController < ApplicationController
     #Connections
     # url = 'https://api.linkedin.com/v1/people/~/connections?&oauth2_access_token='+@access_token+'&format_json'
     # connections = getrequest(url)
-    if !current_user.nil? && current["e"] == "all"
+    if !current_user.nil? && current_user["e"] == "all"
       current_user["linkedin_results"] = @basic_info
       current_user.save!
       redirect_to all_path
