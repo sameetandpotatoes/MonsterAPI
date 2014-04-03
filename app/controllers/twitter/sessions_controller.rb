@@ -35,7 +35,7 @@ class Twitter::SessionsController < ApplicationController
           raise
         end
       end
-      if current_user["e"] == "all"
+      if !current_user.nil?
         redirect_to "/auth/github"
       end
     else

@@ -19,16 +19,16 @@ body{
 h1{
   font-family: 'Myriad Pro', 'Helvetica' !important;
 }
-.buttons, .intro-text{
-  display: inline-block;
-  padding: 0 10px;
+.buttons{
+  position: relative;
+  margin-right: 55%;
 }
 .intro-text{
-  vertical-align: top;
-  margin: 50px auto;
+  float: right;
+  position: relative;
   text-align: right;
   max-width: 50%;
-  margin-left: 5%;
+  margin-top: 50px;
   h1{
     font-weight: bold;
     font-size: 35px;
@@ -52,7 +52,7 @@ header{
   }
 }
 .main-content{
-  padding: 10px 30px;
+  padding: 0px 30px;
 }
 .embedded-link{
   border-bottom: 3px solid gray;
