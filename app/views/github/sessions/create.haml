@@ -1,37 +1,56 @@
 -@title = "GitHub | #{@results["name"]}"
 #github
-  %h1
-    = link_to "#{@results["login"]}", "http://github.com/#{@results["login"]}"
-  %p
-    #{@results["name"].split(" ")[0]} can be contacted at
-    = link_to "#{@results["email"]}", "mailto:#{@results["email"]}?Subject=Hello"
-  .image
+  .image#right
     = image_tag @results["avatar_url"]
-  %p
-    #{@results["name"].split(" ")[0]} has #{number_with_delimiter @results["public_repos"]} public repos,
-    #{number_with_delimiter @results["public_gists"]} public gists, and
-    #{number_with_delimiter @results["followers"]} followers.
-  - if @results["company"].nil?
-    - if !@results["hireable"]
-      %p
-        #{@results["name"].split(" ")[0]} is currently
-        %span unemployed
-        and available for
-        %span hire.
-    - else
-      %p
-        #{@results["name"].split(" ")[0]} is currently
-        %span unemployed
-        and not available for hire.
-  - else
-    %p
-      #{@results["name"].split(" ")[0]} is currently
-      %span employed
-      at #{@results["company"]}.
-  .repositories
+  .basic_info#left
     %h1
-      #{@results["name"].split(" ")[0]}'s Repositories
-    - @results["repos"].each do |repo|
-      %p=link_to "#{repo["name"]}", repo["html_url"]
-      - unless repo["description"].nil?
-        %p#repo-description "#{repo["description"]}"
+      = @results["name"]
+    = link_to "#{@results["login"]}", "http://github.com/#{@results["login"]}"
+    = link_to "#{@results["email"]}", "mailto:#{@results["email"]}?Subject=Hello"
+  .content
+    .stats
+      .content-text#right
+        %p
+          #{@results["name"].split(" ")[0]} has
+          %span #{number_with_delimiter @results["public_repos"]}
+          public repos,
+          %span #{number_with_delimiter @results["public_gists"]}
+          public gists, and
+          %span #{number_with_delimiter @results["followers"]}
+          followers.
+      .content-header#left
+        Github Statistics
+    .employment
+      .content-text#right
+        - if @results["company"].nil?
+          - if !@results["hireable"]
+            %p
+              #{@results["name"].split(" ")[0]} is currently
+              %span unemployed
+              and available for
+              %span hire.
+          - else
+            %p
+              #{@results["name"].split(" ")[0]} is currently
+              %span unemployed
+              and not available for hire.
+        - else
+          %p
+            #{@results["name"].split(" ")[0]} is currently
+            %span employed
+            at #{@results["company"]}.
+      .content-header#left
+        Employment
+    .repositories
+      %h1
+        #{@results["name"].split(" ")[0]}'s Repositories
+      - @results["repos"].each do |repo|
+        .repository
+          - unless repo["description"].nil?
+            .content-header#right=repo["description"]
+          .content-header#left=link_to "#{repo["name"]}", repo["html_url"]
+:javascript
+  var github_divs = $('.content').children();
+  for (var i = 0; i < github_divs.length; i++){
+    $(github_divs[i]).css("height", $($(github_divs[i]).children()).first().height());
+  }

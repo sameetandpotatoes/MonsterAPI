@@ -5,12 +5,32 @@ $twitter-theme: #40BFF5;
 #twitter{
   overflow: hidden;
   margin: 30px;
-}
-.image{
-  margin-right: 100px;
-}
-.image, .content-text{
-  margin-top: 0px !important;
+  .image, .content-text{
+    margin-top: 0px !important;
+  }
+  .image{
+    margin-right: 100px;
+  }
+  h1{
+    font-size: 35px;
+    text-align: center;
+  }
+  .image img{
+    width: 250px;
+    height: 250px;
+    border-radius: 999px;
+  }
+  .content-header{
+    font-weight: bold;
+  }
+  .content-text{
+    text-align: left !important;
+    max-width: 60% !important;
+  }
+  .basic_info{
+    margin-right: 0px !important;
+    margin-top: 100px;
+  }
 }
 li.api-info{
   list-style: decimal outside none;
@@ -19,10 +39,6 @@ li.api-info{
   border-bottom: 2px solid #CCCCCC;
   margin-bottom: 1.5em;
   padding-bottom: 1em;
-}
-#twitter h1{
-  font-size: 35px;
-  text-align: center;
 }
 .trends .api-info, .suggestions .api-info{
   border-bottom: 3px solid #9A9A9A;
@@ -33,15 +49,6 @@ li.api-info{
   font-size: 23px;
   text-decoration: italic;
   margin-top: 20px;
-}
-.basic_info{
-  margin-right: 0px !important;
-  margin-top: 100px;
-}
-#twitter .image img{
-  width: 250px;
-  height: 250px;
-  border-radius: 999px;
 }
 .content{
   margin-top: 150px;
@@ -55,13 +62,6 @@ li.api-info{
 }
 #twitter p{
   display: inline-block;
-}
-.content-header{
-  font-weight: bold;
-}
-.content-text{
-  text-align: left !important;
-  max-width: 60% !important;
 }
 #twitter-link{
   border-bottom: 5px solid $twitter-theme;

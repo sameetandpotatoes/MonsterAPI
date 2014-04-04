@@ -3,10 +3,19 @@ $github-theme: #EB5E4C;
   background-color: $github-theme;
 }
 #github{
-  .image img{
-    width: 250px;
-    height: 250px;
-    border-radius: 999px;
+  .basic_info{
+    margin-top: 50px;
+  }
+  #right.content-text{
+    margin-top: 0;
+  }
+  .image{
+    margin-top: 0px;
+    img{
+      width: 250px;
+      height: 250px;
+      border-radius: 999px;
+    }
   }
   a{
     border-bottom: 5px solid $github-theme;
@@ -20,6 +29,18 @@ $github-theme: #EB5E4C;
   }
   p{
     line-height: 1.5em;
+  }
+  .content{
+    margin-top: 20%;
+  }
+  .content-text p span{
+    border-bottom: 3px solid #9A9A9A;
+  }
+  .repositories{
+    height: auto !important;
+  }
+  .repository{
+    min-height: 150px;
   }
 }
 #repo-description{
