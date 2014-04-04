@@ -1,5 +1,29 @@
-%h1 Basic Information
-%ul
-  - @basic_info.each do |key, value|
-    %li=value
-%h1 Connectionss
+-@title = "Linkedin | #{@basic_info["firstName"]} #{@basic_info["lastName"]}"
+#linkedin
+  .basic-info
+    = link_to "#{@basic_info["firstName"]} #{@basic_info["lastName"]}", @basic_info["siteStandardProfileRequest"]["url"]
+    = @basic_info["headline"]
+  .content
+    .connections
+      .content-text#right
+        - @connections["values"].shuffle!.each do |friend|
+          .connection
+            = image_tag friend["pictureUrl"]
+            = link_to friend['firstName'] + ' ' + friend['lastName'], friend["siteStandardProfileRequest"]["url"]
+            = friend['headline']
+      .content-header#left
+        =@basic_info['firstName']
+        's Connections
+    .job-suggestions
+      .content-text#right
+        - @job_suggestions["jobs"]["values"].shuffle!.each do |job|
+          .job
+            = job["company"]["name"]
+            %p #{job['descriptionSnippet']}... ~ #{job['locationDescription']}
+      .content-header#left
+        Job Suggestions
+:javascript
+  var linkedin_divs = $('.content').children();
+  for (var i = 0; i < linkedin_divs.length; i++){
+    $(linkedin_divs[i]).css("height",   $($(linkedin_divs[i]).children()).first().height());
+  }

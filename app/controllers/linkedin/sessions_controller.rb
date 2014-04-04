@@ -7,9 +7,11 @@ class Linkedin::SessionsController < ApplicationController
     @access_token = response["access_token"]
     url = 'https://api.linkedin.com/v1/people/~?oauth2_access_token=' + @access_token + '&format=json'
     @basic_info = getrequest(url)
-    #Connections
-    # url = 'https://api.linkedin.com/v1/people/~/connections?&oauth2_access_token='+@access_token+'&format_json'
-    # connections = getrequest(url)
+    url = 'https://api.linkedin.com/v1/people/~/connections?oauth2_access_token=' + @access_token + '&format=json'
+    @connections = getrequest(url)
+    url = 'https://api.linkedin.com/v1/people/~/suggestions/job-suggestions?oauth2_access_token=' + @access_token + '&format=json'
+    @job_suggestions = getrequest(url)
+    binding.pry
     if !current_user.nil? && current_user['e'] == 'all'
       current_user['linkedin_results'] = @basic_info
       current_user.save!

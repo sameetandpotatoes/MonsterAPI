@@ -1,3 +1,48 @@
+$linkedin-theme: #238CC8;
 .linkedin{
-  background-color: #238CC8;
+  background-color: $linkedin-theme;
+}
+#linkedin{
+  .basic-info{
+    text-align: center;
+    a{
+      display: block;
+      font-size: 35px;
+    }
+  }
+  .content-text{
+    margin-top: 0px;
+  }
+  .content{
+    margin-top: 100px;
+  }
+  a{
+    border-bottom: 5px solid $linkedin-theme;
+    &:hover{
+      color: $linkedin-theme;
+    }
+  }
+  .connection{
+    text-align: left;
+    img{
+      border-radius: 999px;
+    }
+    a{
+      display: block;
+      font-size: 28px;
+    }
+  }
+  .content-header{
+    font-weight: bold;
+  }
+  .job{
+    text-align: center;
+    display: block;
+    font-weight: bold;
+    p{
+      font-weight: normal;
+      text-align: left;
+      font-size: 80%;
+    }
+  }
 }
