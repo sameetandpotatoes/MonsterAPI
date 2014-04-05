@@ -11,7 +11,6 @@ class Linkedin::SessionsController < ApplicationController
     @connections = getrequest(url)
     url = 'https://api.linkedin.com/v1/people/~/suggestions/job-suggestions?oauth2_access_token=' + @access_token + '&format=json'
     @job_suggestions = getrequest(url)
-    binding.pry
     if !current_user.nil? && current_user['e'] == 'all'
       current_user['linkedin_results'] = @basic_info
       current_user.save!

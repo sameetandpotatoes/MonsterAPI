@@ -1,7 +1,10 @@
 -@title = "Linkedin | #{@basic_info["firstName"]} #{@basic_info["lastName"]}"
 #linkedin
   .basic-info
-    = link_to "#{@basic_info["firstName"]} #{@basic_info["lastName"]}", @basic_info["siteStandardProfileRequest"]["url"]
+    - if @basic_info["siteStandardProfileRequest"]["url"].nil?
+      ="#{@basic_info["firstName"]} #{@basic_info["lastName"]}"
+    - else
+      = link_to "#{@basic_info["firstName"]} #{@basic_info["lastName"]}", @basic_info["siteStandardProfileRequest"]["url"]
     = @basic_info["headline"]
   .content
     .connections
@@ -9,7 +12,10 @@
         - @connections["values"].shuffle!.each do |friend|
           .connection
             = image_tag friend["pictureUrl"]
-            = link_to friend['firstName'] + ' ' + friend['lastName'], friend["siteStandardProfileRequest"]["url"]
+            - if friend["siteStandardProfileRequest"]["url"].nil?
+              = friend['firstName'] + ' ' + friend['lastName']
+            - else
+              = link_to friend['firstName'] + ' ' + friend['lastName'], friend["siteStandardProfileRequest"]["url"]
             = friend['headline']
       .content-header#left
         =@basic_info['firstName']
