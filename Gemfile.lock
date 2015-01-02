@@ -71,6 +71,10 @@ GEM
     json (1.8.1)
     jwt (0.1.11)
       multi_json (>= 1.5)
+    koala (1.10.1)
+      addressable
+      faraday
+      multi_json
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     memoizable (0.4.2)
@@ -197,6 +201,7 @@ DEPENDENCIES
   haml
   jbuilder (~> 1.2)
   jquery-rails
+  koala
   omniauth
   omniauth-facebook (= 1.4.0)
   omniauth-twitter (= 1.0.1)

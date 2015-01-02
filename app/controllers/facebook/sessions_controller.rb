@@ -7,6 +7,7 @@ class Facebook::SessionsController < ApplicationController
     @friends = @graph.get_connections('me', 'friends').shuffle!.take(5)
     @events = @graph.get_connections('me', 'events').shuffle!.take(3)
     @interests = @graph.get_connections('me', 'interests').shuffle!.take(3)
+    binding.pry
     session[:user_id] = user.id
     if !params['e'].nil?
       user['e'] = 'all'

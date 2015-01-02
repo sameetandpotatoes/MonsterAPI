@@ -12,6 +12,7 @@ gem 'omniauth-twitter', '1.0.1'
 gem 'omniauth-facebook', '1.4.0'
 gem 'twitter'
 gem 'twitter-text'
+gem 'koala'
 gem 'pry'
 gem 'figaro'
 gem 'quiet_assets', group: :development
