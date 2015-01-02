@@ -15,7 +15,6 @@ jQuery ->
     FB.login ((response) ->
       window.location = "/auth/facebook/callback?e=all" if response.authResponse
     ),
-      scope: "email,user_likes"
-    # $('.github').trigger "click"
-    # $('.linkedin').trigger "click"
-    # $('.twitter').trigger "click"
+      scope: "basic_info,email,user_likes,user_about_me,user_birthday,
+              user_education_history,user_events,user_groups,
+              user_interests,friends_about_me"

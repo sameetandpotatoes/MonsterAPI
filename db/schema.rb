@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140403222627) do
+ActiveRecord::Schema.define(version: 20140405142851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "messages", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "supports", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "twitters", force: true do |t|
     t.datetime "created_at"
@@ -22,22 +32,15 @@ ActiveRecord::Schema.define(version: 20140403222627) do
   end
 
   create_table "users", force: true do |t|
-    t.text   "users"
-    t.text   "provider"
-    t.text   "string"
-    t.text   "uid"
-    t.text   "name"
     t.text   "oauth_token"
     t.text   "oauth_expires_at"
     t.text   "created_at"
     t.text   "updated_at"
-    t.text   "quote"
-    t.text   "location"
-    t.string "email"
-    t.text   "image"
     t.string "e"
     t.text   "github_results",   default: ""
     t.text   "linkedin_results", default: ""
+    t.string "provider"
+    t.string "uid"
   end
 
 end

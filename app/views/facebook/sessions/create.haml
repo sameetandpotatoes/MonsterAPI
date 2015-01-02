@@ -1,0 +1,39 @@
+-@title=@profile["name"]
+#facebook
+  .basic_info
+    %p=@profile["name"]
+    =link_to @profile["username"], @profile["link"]
+    =link_to @profile["email"], "mailto:#{@profile["email"]}?Subject=Hello"
+    %p=@profile["quotes"]
+  .content
+    .education
+      .content-text#right
+        -@profile["education"].each do |school|
+          %p.api-info="#{school["type"]} at #{school["name"]}"
+      .content-header#left
+        Education
+    .friends
+      .content-text#right
+        -@friends.each do |friend|
+          %p.api-info=friend["name"]
+      .content-header#left
+        Friends
+    -if (not @events.nil? || @events.empty?)
+      .events
+        .content-text#right
+          -@events.each do |event|
+            %p.api-info=event["name"]
+        .content-header#left
+          Events
+    -if (not @interests.nil? || @interests.empty?)
+      .interests
+        .content-text#right
+          -@interests.each do |interest|
+            %p.api-info="#{interest["name"]}"
+        .content-header#left
+          Interests
+:javascript
+  var facebook_divs = $('.content').children();
+  for (var i = 0; i < facebook_divs.length; i++){
+    $(facebook_divs[i]).css("height", $($(facebook_divs[i]).children()).first().height());
+  }

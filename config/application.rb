@@ -1,7 +1,8 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-require 'rest_client'
+require 'rest-client'
+require 'json'
 require 'twitter'
 require "net/http"
 require "uri"

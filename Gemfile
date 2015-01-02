@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
-gem 'rails', '4.0.2'
+ruby '2.1.5'
+gem 'rails', '4.1.8'
 gem 'pg'
 gem 'uglifier'
 gem 'jquery-rails'
@@ -14,8 +14,8 @@ gem 'twitter'
 gem 'twitter-text'
 gem 'pry'
 gem 'figaro'
-gem 'quiet_assets', :group => :development
-gem 'rest_client'
+gem 'quiet_assets', group: :development
+gem 'rest-client'
 gem 'cloudinary'
 gem 'actionpack-page_caching'
 gem 'sitemap_generator'
@@ -28,7 +28,4 @@ group :assets do
 end
 group :production do
   gem 'rails_12factor'
-end
-group :api do
-
 end

@@ -1,3 +1,33 @@
+$facebook: #5D82D1;
 .facebook{
-  background-color: #5D82D1;
+  background-color: $facebook;
+}
+#facebook{
+  .content-header{
+    font-weight: bold;
+  }
+  a{
+    border-bottom: 5px solid $facebook;
+    &:hover{
+      color: $facebook;
+    }
+  }
+  .content{
+    margin-top: 100px;
+    #right{
+      margin-top: 0px;
+    }
+  }
+  .basic_info{
+    text-align: center;
+    font-size: 23px;
+    line-height: 1.5em;
+    p:first-child{
+      font-size: 30px;
+    }
+    a{
+      display: 'table';
+      margin: 0 auto;
+    }
+  }
 }
